@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>Microeasy - 资源导航平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Microeasy 一站式软件资源导航，提供iOS主题、工具软件、音乐播放器等海量资源">
+    <link rel="icon" type="image/x-icon" href="https://api.zixiaoyun.com/v2/ico/icos/xbtFqA9Rgd2zev0AEAJI/Microeasy2.ico">
+    <style>
+        :root {
+            --primary: #bb86fc;
+            --accent: #bb86fc;
+            --text: #34495e;
+            --background: #f8f9fa;
+            --card-bg: white;
+            --shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 暗色模式变量 */
+        [data-theme="dark"] {
+            --primary: #1a1a1a;
+            --accent: #ff6b6b;
+            --text: #e0e0e0;
+            --background: #121212;
+            --card-bg: #1e1e1e;
+            --shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+            margin: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* 页头与搜索框 */
+        header {
+            background: var(--card-bg);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .branding {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .branding img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #bdc3c7;
+            border-radius: 25px;
+            font-size: 1rem;
+            background: var(--card-bg);
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 8px rgba(231, 76, 60, 0.2);
+            outline: none;
+        }
+
+        /* 资源分类布局 */
+        main {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .category-section {
+            margin: 2rem 0;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .resource-card {
+            padding: 1.2rem;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s;
+        }
+
+        .resource-card:hover {
+            transform: translateX(5px);
+        }
+
+        .resource-card a {
+            color: var(--text);
+            text-decoration: none;
+            display: block;
+        }
+
+        .resource-card a:hover {
+            color: var(--accent);
+        }
+
+        /* 运行时间显示 */
+        #sitetime {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--accent);
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* 模式切换按钮 */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="branding">
+                <img src="https://img.dexbug.com/i/2025/02/02/fm3a1h.png" 
+                     alt="Microeasy Logo"
+                     loading="lazy">
+                <div>
+                    <h1>Microeasy</h1>
+                    <p>软件资源精选导航</p>
+                </div>
+            </div>
+            <div class="search-box">
+                <input type="text" 
+                       id="searchInput" 
+                       placeholder="搜索资源名称或关键词...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 系统工具分类 -->
+        <section class="category-section">
+            <h2>📦 系统工具</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/">首页</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/ztku">仿iOS主题软件下载 ★</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-gdNQ3">仿iOS主题库软件集</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/Calculator">计算器</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/ChristmasTree">圣诞树</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/ColorClock">彩色霓虹灯数字时钟</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/RingClockUI">圆环数字时钟</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/AppleWatchClock">Apple手表时钟</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/Colors">渐变文字背景</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://tool.liumingye.cn/music/#/">MyFreeMP3</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/zz123">ZZ123音乐</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/gequbao">歌曲宝</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/OftenCPApps">Windows装机可信用必备软件</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-oLCQ3">BA.(蔚蓝档案)壁纸,音频等文件</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://old.chiyuba.com/621">2023免费软件合集</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/share">分享文件</a>
+                </div>
+                <div class="resource-card">
+                    <a href="http://woniu88.asia/music/">蜗牛随身助手音乐</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.haoruanmao.com/lanzous-software-collection">好软猫[软件分享师]</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.iplaysoft.com/">异次元空间[专门分享软件文件]</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/page1" target="_blank" rel="noopener noreferrer">蔚蓝档案官网</a>
+                </div>
+                <!-- 其他系统工具链接... -->
+            </div>
+        </section>
+
+        <!-- 效率工具分类 -->
+        <section class="category-section">
+            <h2>⚡ 效率工具</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/Calculator">多功能计算器</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/ChristmasTree">圣诞树</a>
+                </div>
+                <!-- 其他效率工具链接... -->
+            </div>
+        </section>
+        
+        <!-- 安卓软件分类 -->
+        <section class="category-section">
+            <h2>⚡ 安卓软件</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-XCNQ3">Android任务栏(办公高效率)</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-DWCQ3">安卓状态栏隐藏工具</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-alCQ3">高德地图</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-sTNQ3">绿色守护</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-DvNQ3">手机清理</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-UvNQ3">谷歌安装器</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-oYNQ3">鲸鲮office</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-mJRQ3">阅读文本转码器下载</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/XiR9-6GOQ3">Music下载工具(更新啦!)</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/fAdzVv-F4Yl">魔音音乐手机版</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123pan.com/s/HY2HTd-JbCF3">QQ Pad(QQ平板版)</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://wwcq.lanzouj.com/b02vqbe4j">圣经APP合集(PW[密码]:12)</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://microeasyo.rth5.com/Session">私密聊天软件</a>
+                </div>
+                <!-- 其他效率工具链接... -->
+            </div>
+        </section>
+
+        <!-- 完整添加所有资源分类... -->
+
+        <span id="sitetime"></span>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/AboutUS">关于我们</a>
+            <a href="/Contact-US">联系我们</a>
+            <a href="/Privacy-Policy">隐私条款</a>
+        </div>
+        <p>Copyright © 2021-2025 Microeasy All rights reserved.</p>
+    </footer>
+
+    <button class="theme-toggle" id="themeToggle">🌙 切换模式</button>
+
+    <script>
+        // 增强版时间计算
+        (function() {
+            const startDate = new Date('2022-11-12T08:00:00+08:00');
+            
+            function calculateDuration() {
+                const now = new Date();
+                let diff = now - startDate;
+
+                const years = Math.floor(diff / 31536000000);
+                diff %= 31536000000;
+                
+                const days = Math.floor(diff / 86400000);
+                diff %= 86400000;
+                
+                const hours = Math.floor(diff / 3600000);
+                diff %= 3600000;
+                
+                const minutes = Math.floor(diff / 60000);
+                diff %= 60000;
+                
+                const seconds = Math.floor(diff / 1000);
+
+                return { years, days, hours, minutes, seconds };
+            }
+
+            function updateTimer() {
+                const t = calculateDuration();
+                document.getElementById('sitetime').innerHTML = 
+                    `🚀 本站已持续运行 ${t.years} 年 ${t.days} 天 ${t.hours} 小时 ${t.minutes} 分 ${t.seconds} 秒`;
+            }
+
+            // 搜索功能
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                document.querySelectorAll('.resource-card').forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    card.style.display = text.includes(searchTerm) ? 'block' : 'none';
+                });
+            });
+
+            // 主题切换功能
+            const themeToggle = document.getElementById('themeToggle');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let isDarkMode = prefersDark;
+
+            function toggleTheme() {
+                isDarkMode = !isDarkMode;
+                document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+                themeToggle.textContent = isDarkMode ? '☀️ 切换模式' : '🌙 切换模式';
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            }
+
+            themeToggle.addEventListener('click', toggleTheme);
+
+            // 初始化主题
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️ 切换模式';
+            }
+
+            // 初始化计时器
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        })();
+    </script>
+</body>
+</html>
