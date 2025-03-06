@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1,viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-transform" /> 
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="canonical" href="https://www.zhanid.com/tool/qqchat.html">
+<title>QQ强制聊天工具 - 站长工具网</title>
+<meta name="keywords" content="qq强制聊天,qq强制聊天器,qq强制聊天代码,qq临时会话,qq临时会话代码,qq强行聊天器">
+<meta name="description" content="qq强制聊天工具是一款在线使用的qq强行聊天器，当你在QQ上添加好友遭到拒绝时，使用该工具可以同任何在线的QQ用户聊天。也可选择打开qq;临时会话和跳转到加好友的界面，是交友必不可少的一个工具！">
+<link href="https://www.zhanid.com/statics/css/zhanid.css" rel="stylesheet" type="text/css" >
+<link href="https://www.zhanid.com/statics/css/zhanid-response.min.css" rel="stylesheet" type="text/css" >
+<link href="https://www.zhanid.com/statics/css/css.css" rel="stylesheet" type="text/css" >
+<script src="https://www.zhanid.com/statics/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://www.zhanid.com/statics/js/clipboard.min.js"></script>
+<script type="text/javascript" src="https://www.zhanid.com/statics/layer/layer.js"></script>
+</head>
+<body>
+    <!--页面主内容区域-->
+  <main class="mian">
+  <div class="ax-break"></div>
+<div class="ax-row ax-split">
+    <div class="ax-col ax-col-16 bg ax-shadow">
+<!--工具开始-->
+	<div class="ax-panel ax-padding">
+    <div class="ax-panel-body ax-tools">
+	<div class="title"><h1 class="bl fz18">QQ强制聊天</h1> <div class="titler"><span class="ax-iconfont ax-icon-clock"></span>2024-08-15</div></div>
+	<div class="ax-break"></div>
+<section class="demo-section">
+ <div class="ax-row ax-input-group">
+<span class="ax-prefix" for="input-qq">QQ号码</span>
+<div class="ax-flex-block">
+<input type="text" id="input-qq" name="uin" class="form-control" placeholder="请输入要跳转的QQ号码" required>
+</div>
+</div>
+        <div class="tcenter p1">
+            <button type="button" onclick="jumpToWPA()" class="ax-btn ax-success btn-lg w-100">QQ临时会话</button>
+			<button type="button" onclick="jumpToChat()" class="ax-btn ax-primary btn-lg w-100">QQ强制聊天</button>
+            <button type="button" onclick="jumpToAddFriend()" class="ax-btn ax-error btn-lg w-100">跳转加好友界面</button>
+        </div>
+</section>
+<div class="ax-break-md"></div>
+<hr>
+<div class="ax-break-md"></div>
+<!--工具简介-->
+<section>
+<div class="title"><h2 class="bl fz16">工具介绍</h2></div>
+<article>
+<p><strong>QQ强制聊天工具</strong>是一款在线使用的qq强行聊天器，当你在QQ上添加好友遭到拒绝时，使用该工具可以同任何在线的QQ用户聊天。也可选择打开qq;临时会话和跳转到加好友的界面，是交友必不可少的一个工具！</p>
+<h3>QQ强制聊天注意事项:</h3>
+<p>1、如果弹出“必须加好友才能对话”可能是别人开启了防骚扰设置，如开启了此项设置则对话不会成功。</p>
+
+<p>2、如果对方QQ版本过低，则可能提示“对方QQ版本过低不支持此功能” 请按Ctrl+D键 收藏本站 如果您喜欢本站,请将本网站推荐给您身边有需要的朋友。</p>
+<h3>功能说明:</h3>
+        <p>跳转聊天界面：一般只支持已开启临时会话的QQ</p>
+        <p>跳转加好友界面：可解决QQ设置不允许被搜索后无法加好友的问题</p>
+        <p>WPA临时会话：从网页跳转聊天界面，与第一个按钮功能差不多</p>
+</article>
+</section>
+<!--工具简介结束-->
+  <script>
+    function jumpToChat() {
+      var qq = document.getElementById("input-qq").value;
+      var url = "mqqwpa://im/chat?chat_type=wpa&version=1&src_type=web&web_src=oicqzone.com&uin=" + qq;
+      window.location.href = url;
+    }
+
+    function jumpToAddFriend() {
+      var qq = document.getElementById("input-qq").value;
+      var url = "mqq://card/show_pslcard?src_type=internal&version=1&uin=" + qq + "&card_type=person&source=sharecard";
+      window.location.href = url;
+    }
+
+    function jumpToWPA() {
+      var qq = document.getElementById("input-qq").value;
+      var url = "https://wpa.qq.com/msgrd?v=3&site=qq&menu=yes&uin=" + qq;
+      window.open(url, '_blank');
+    }
+  </script>
+</div>	
+</div>
+<!--工具结束-->
+<div class="ax-break"></div>
+</div>
+ <span class="ax-gutter"></span>
+    <!--页面底部版权区域-->
+    <footer class="footer">
+		<div class="ax-break"></div>
+	</div>
+	<div class="ax-footer">
+    <div class="ax-row ax-split box bg ax-shadow-primary">
+        <div class="ax-col ax-copyright">Copyright © 2021-2025 Microeasy All rights reserved.</a></span></div>本站正式运行<span id="sitetime"  style="color: #3f7fe0;" ></span>
+<script language=javascript>
+    function siteTime(){
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth()+1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2022,11,12,08,00,00); //北京时间2022-11-12 08:00:00创建网站的时间
+        var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+        var diff = t2-t1;
+        var diffYears = Math.floor(diff/years);
+        var diffDays = Math.floor((diff/days)-diffYears*365);
+        var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+        var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+        var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+        document.getElementById("sitetime").innerHTML=+diffYears+"年"+diffDays+"天"+diffHours+"时"+diffMinutes+"分钟"+diffSeconds+"秒";
+    }
+    siteTime();
+</script>
+</body>
+</html>
