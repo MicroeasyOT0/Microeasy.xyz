@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取openid</title>
+<style>
+  body{ text-align:center;}
+  .p1{ line-height:200px; font-size:40px;}
+  .download{ width:80%; margin:auto;}
+  .download a{ width:100%; height:120px; background-color:#4da2fd; display:block; line-height:120px; color:#fff; font-size:40px;text-decoration:none;}
+  .download p{ width:100%; line-height:30px; color:#555; font-size:35px;}
+</style>
+</head>
+
+<body>
+
+<p id="target" class="p1">ASDDDDDeeeewwwDDDDDD</p>
+
+<div class="download">
+  <a href="javascript:;" data-clipboard-action="copy" data-clipboard-target="#target" id="copy_btn">复制</a>
+    <p id="p2"></p>
+</div>
+
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //id="target" 的文本内容是被复制的内容
+        var targetText = $("#target").text();
+        // id="copy_btn" 是点击的按钮
+        var clipboard = new ClipboardJS('#copy_btn');
+        clipboard.on('success', function (e) {
+            e.clearSelection();
+            $("#p2").text("复制成功")
+        });
+    });
+</script>
+</body>
+</html>

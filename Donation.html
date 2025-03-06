@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>捐赠页面</title>
+  <link rel="icon" href="https://microeasy.rth5.com/Microeasy3.png" type="image/png">
+  <style>
+    @charset "utf-8";
+
+    /* 定义变量，方便统一管理颜色 */
+    :root {
+      --primary-bg-color-light: rgb(240, 240, 240);
+      --primary-text-color-light: rgb(51, 51, 51);
+      --primary-bg-color-dark: rgb(51, 51, 51);
+      --primary-text-color-dark: rgb(240, 240, 240);
+      --button-bg-color: rgb(26, 173, 25);
+      --button-hover-bg-color: rgb(23, 155, 21);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--primary-bg-color-light);
+      color: var(--primary-text-color-light);
+      transition: background-color 1s, color 1s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+   .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+   .donate-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--button-bg-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+   .donate-button:hover {
+      background-color: var(--button-hover-bg-color);
+    }
+
+   .donation-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+   .donation-list li {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+   .donation-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+   .qr-code img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--primary-bg-color-dark);
+        color: var(--primary-text-color-dark);
+      }
+
+     .donate-button {
+        background-color: var(--button-hover-bg-color);
+      }
+
+     .donate-button:hover {
+        background-color: var(--button-bg-color);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="donation-info">
+      <h1>我们需要您的幫忙！</h1>
+      <p>透过捐款支援 Microeasy.</p>
+      <p>I am not well-off, but I will do my best to help you. If you are financially capable, please consider supporting me. Any amount is appreciated, no matter how small. 
+      [我很穷，但尽可能的为你提供帮助，如果财力雄厚请支援我。金额不再大小，一样的感谢。]<p>
+      <a href="https://microeasy.rth5.com/1730142733553.png" target="_blank" class="donate-button">Donate [捐款]</a>
+      <div class="qr-code">
+        <img src="https://microeasy.rth5.com/1730142733553.png" alt="微信捐赠二维码">
+      </div>
+    </div>
+    <ul class="donation-list">
+      <li>•特别感谢苏奈同学为我们充值4个月会员+两个月华为主题并为我们续费存储费用!</li>
+      <li>•罐装冰块 ¥18 CNY By WeChat Pay (China)</li>
+      <li>•sz ¥3.89 CNY By WeChat Pay (China)</li>
+      <li>•。 ¥5 CNY By WeChat Pay (China)</li>
+      <li>•青创云-雷阵雨 ¥0.01 CNY By WeChat Pay (China)</li>
+      <li>•王同学-Aptoais ¥0.60 CNY By WeChat Pay (China)</li>
+      <li>•小马-@ ¥20 CNY By WeChat Pay (China)</li>
+    </ul>
+  </div>
+</body>
+
+</html>
