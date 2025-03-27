@@ -6,7 +6,7 @@
     <title>Microeasy - 资源导航平台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Microeasy 一站式软件资源导航，提供iOS主题、工具软件、音乐播放器等海量资源">
-    <link rel="icon" type="image/x-icon" href="https://api.zixiaoyun.com/v2/ico/icos/xbtFqA9Rgd2zev0AEAJI/Microeasy2.ico">
+    <link rel="icon" type="image/x-icon" href="https://img.dexbug.com/i/2025/03/28/224vml.ico">
     <style>
         :root {
             --primary: #bb86fc;
@@ -14,7 +14,7 @@
             --text: #34495e;
             --background: #f8f9fa;
             --card-bg: white;
-            --shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+            --shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
         }
 
         /* 暗色模式变量 */
@@ -24,26 +24,31 @@
             --text: #e0e0e0;
             --background: #121212;
             --card-bg: #1e1e1e;
-            --shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            --shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background: var(--background);
+            /* 添加背景图片 */
+            background-image: url('https://microeasy.netlify.app/1689942355784.jpg');
+            background-size: cover;
+            background-attachment: fixed;
             margin: 0;
             transition: background 0.3s, color 0.3s;
         }
 
         /* 页头与搜索框 */
         header {
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.7);
             padding: 1rem 2rem;
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(10px); /* 添加毛玻璃效果 */
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .header-content {
@@ -97,10 +102,12 @@
 
         .category-section {
             margin: 2rem 0;
-            background: var(--card-bg);
+            background-color: rgba(255, 255, 255, 0.7);
             border-radius: 12px;
             padding: 2rem;
             box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .resource-grid {
@@ -135,7 +142,7 @@
             display: block;
             font-size: 1.1rem;
             color: var(--accent);
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.7);
             padding: 1rem;
             border-radius: 6px;
             margin: 2rem 0;
@@ -164,7 +171,7 @@
             padding: 0.8rem 1.2rem;
             border-radius: 25px;
             cursor: pointer;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow);
             transition: all 0.3s;
         }
 
@@ -178,7 +185,7 @@
     <header>
         <div class="header-content">
             <div class="branding">
-                <img src="https://img.dexbug.com/i/2025/02/02/fm3a1h.png" 
+                <img src="https://api.zixiaoyun.com/v2/ico/icos/xbtFqA9Rgd2zev0AEAJI/Microeasy2.ico" 
                      alt="Microeasy Logo"
                      loading="lazy">
                 <div>
@@ -344,7 +351,7 @@
             <a href="/Contact-US">联系我们</a>
             <a href="/Privacy-Policy">隐私条款</a>
         </div>
-        <p>Copyright © 2021-2025 Microeasy All rights reserved.</p>
+        <p>Copyright © 2017-2025 Microeasy All rights reserved.</p>
     </footer>
 
     <button class="theme-toggle" id="themeToggle">🌙 切换模式</button>

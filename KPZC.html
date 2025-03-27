@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>主页｜逍遥游资源站</title>
+    <title>Microeasy - 资源导航平台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Microeasy 一站式软件资源导航，提供iOS主题、工具软件、音乐播放器等海量资源">
+    <link rel="icon" type="image/x-icon" href="https://img.dexbug.com/i/2025/03/28/225hc7.ico">
     <style>
         :root {
             --primary: #2797F9;
@@ -12,7 +14,7 @@
             --text: #34495e;
             --background: #f8f9fa;
             --card-bg: white;
-            --shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+            --shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
         }
 
         /* 暗色模式变量 */
@@ -22,26 +24,31 @@
             --text: #e0e0e0;
             --background: #121212;
             --card-bg: #1e1e1e;
-            --shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            --shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1;
+            line-height: 1.6;
             color: var(--text);
-            background: var(--background);
+            /* 添加背景图片 */
+            background-image: url('https://microeasy.netlify.app/1689942355784.jpg');
+            background-size: cover;
+            background-attachment: fixed;
             margin: 0;
             transition: background 0.3s, color 0.3s;
         }
 
         /* 页头与搜索框 */
         header {
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.7);
             padding: 1rem 2rem;
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(10px); /* 添加毛玻璃效果 */
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .header-content {
@@ -90,26 +97,28 @@
         main {
             max-width: 1280px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 0 2rem;
         }
 
         .category-section {
             margin: 2rem 0;
-            background: var(--card-bg);
+            background-color: rgba(255, 255, 255, 0.7);
             border-radius: 12px;
-            padding: 0.9rem;
+            padding: 2rem;
             box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .resource-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .resource-card {
-            padding: 0.9rem;
+            padding: 1.2rem;
             border-left: 4px solid var(--accent);
             transition: transform 0.2s;
         }
@@ -133,7 +142,7 @@
             display: block;
             font-size: 1.1rem;
             color: var(--accent);
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.7);
             padding: 1rem;
             border-radius: 6px;
             margin: 2rem 0;
@@ -154,15 +163,15 @@
         /* 模式切换按钮 */
         .theme-toggle {
             position: fixed;
-            bottom: 1rem;
-            right: 1rem;
+            bottom: 2rem;
+            right: 2rem;
             background: var(--accent);
             color: white;
             border: none;
             padding: 0.8rem 1.2rem;
             border-radius: 25px;
             cursor: pointer;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow);
             transition: all 0.3s;
         }
 
@@ -187,10 +196,11 @@
             <div class="search-box">
                 <input type="text" 
                        id="searchInput" 
-                       placeholder="❤️搜索时须全字匹配">
+                       placeholder="❤️搜索资源名称或关键词...">
             </div>
         </div>
     </header>
+
     <main>
     <!公告->
         <section class="category-section">
@@ -377,13 +387,17 @@
                     <a href="https://www.123912.com/s/WuTjTd-hQqsd">📁杂项资源｜一二三</a>
                 </div>
         </section>
-        <! 完整添加所有资源分类... ->
+                <!-- 其他系统工具链接... -->
+            </div>
+        </section>
+        <!-- 完整添加所有资源分类... -->
+
         <span id="sitetime"></span>
     </main>
 
     <footer>
         <div class="footer-links">
-        <a href="https://microeasy.netlify.app/">感谢Microeasy鼎力支持</a>｜
+            <a href="https://microeasy.netlify.app/">感谢Microeasy鼎力支持</a>｜
             <a href="http://www.coolapk.com/u/37113394">问题反馈</a>
         </div>
         <p>版本 3.1.9｜2025-03-26</p>
@@ -391,12 +405,12 @@
         <p>Copyright © 2021-2025 Microeasy All rights reserved.</p>
     </footer>
 
-    <button class="theme-toggle" id="themeToggle">🌙 暗色模式</button>
+    <button class="theme-toggle" id="themeToggle">🌙 深色模式</button>
 
     <script>
         // 增强版时间计算
         (function() {
-            const startDate = new Date('2025-03-27T00:00:00+08:00');
+            const startDate = new Date('2025-03-27T08:00:00+08:00');
             
             function calculateDuration() {
                 const now = new Date();
@@ -422,7 +436,7 @@
             function updateTimer() {
                 const t = calculateDuration();
                 document.getElementById('sitetime').innerHTML = 
-                    `🚀 下载站已运行 ${t.years} 年 ${t.days} 天 `;
+                    `🚀 本下载點已持续运行 ${t.years} 年 ${t.days} 天 ${t.hours} 小时 ${t.minutes} 分 ${t.seconds} 秒`;
             }
 
             // 搜索功能
@@ -442,7 +456,7 @@
             function toggleTheme() {
                 isDarkMode = !isDarkMode;
                 document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-                themeToggle.textContent = isDarkMode ? '☀️ 亮色模式' : '🌙 暗色模式';
+                themeToggle.textContent = isDarkMode ? '☀️ 浅色模式' : '🌙 深色模式';
                 localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
             }
 
@@ -452,7 +466,7 @@
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
                 document.documentElement.setAttribute('data-theme', 'dark');
-                themeToggle.textContent = '☀️ 亮色模式';
+                themeToggle.textContent = '☀️ 浅色模式';
             }
 
             // 初始化计时器
