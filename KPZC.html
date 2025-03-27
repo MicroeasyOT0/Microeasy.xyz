@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>主页｜逍遥游资源站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --primary: #2797F9;
+            --accent: #2797F9;
+            --text: #34495e;
+            --background: #f8f9fa;
+            --card-bg: white;
+            --shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 暗色模式变量 */
+        [data-theme="dark"] {
+            --primary: #1a1a1a;
+            --accent: #2797F9;
+            --text: #e0e0e0;
+            --background: #121212;
+            --card-bg: #1e1e1e;
+            --shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1;
+            color: var(--text);
+            background: var(--background);
+            margin: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* 页头与搜索框 */
+        header {
+            background: var(--card-bg);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .branding {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .branding img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #bdc3c7;
+            border-radius: 25px;
+            font-size: 1rem;
+            background: var(--card-bg);
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 8px rgba(231, 76, 60, 0.2);
+            outline: none;
+        }
+
+        /* 资源分类布局 */
+        main {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .category-section {
+            margin: 2rem 0;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 0.9rem;
+            box-shadow: var(--shadow);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .resource-card {
+            padding: 0.9rem;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s;
+        }
+
+        .resource-card:hover {
+            transform: translateX(5px);
+        }
+
+        .resource-card a {
+            color: var(--text);
+            text-decoration: none;
+            display: block;
+        }
+
+        .resource-card a:hover {
+            color: var(--accent);
+        }
+
+        /* 运行时间显示 */
+        #sitetime {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--accent);
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* 模式切换按钮 */
+        .theme-toggle {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="branding">
+                <img src="https://img.dexbug.com/i/2025/03/27/fbh307.png"
+                     alt="KPZC Logo"
+                     loading="lazy">
+                <div>
+                    <p>逍遥游</p>
+                    <p>资源站</p>
+                </div>
+            </div>
+            <div class="search-box">
+                <input type="text" 
+                       id="searchInput" 
+                       placeholder="❤️搜索时须全字匹配">
+            </div>
+        </div>
+    </header>
+    <main>
+    <!公告->
+        <section class="category-section">
+            <h2>🥰 欢迎莅临本资源站</h2>
+            <p>😄本站由<a href="http://www.coolapk.com/u/37113394">酷安@得道逍遥</a>创建</p>
+            <p>😄感谢<a href="http://www.coolapk.com/u/11087865">酷安@Microeasy123</a>提供服务器</p>
+            <p>🤣因处于建站初期,故资源较少,敬请谅解</p>
+            <p>😡严禁批量搬运本资源站资源,如有任何问题,欢迎在<a href="http://www.coolapk.com/u/37113394">问题反馈</a>处联系我们</p>
+                </div>
+        </section>       
+        <!TFT->
+        <section class="category-section">
+            <h2>🟢 TFT</h2>
+            <p>⚠️TFT目录下的所有程序安装密码均为TFT</p>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1P01UUQ8OJVshxSupW0Xejg?pwd=KPZC">📁专项工具｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-79qsd">📁专项工具｜一二三</a>
+                </div>
+        </section>
+        <!仿真->
+        <section class="category-section">
+            <h2>🟢 仿真</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1K058q8xuLJQHnYM0oFCFJg?pwd=KPZC">📁Vectras VM｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-b9qsd">📁Vectras VM｜一二三</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/193lTWY7rCn2SCr1XX2K_nA?pwd=KPZC">📁小小电脑｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-Z9qsd">📁小小电脑｜一二三</a>
+                </div>
+        </section>
+        <!降级->
+        <section class="category-section">
+            <h2>🟢 降级</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1kCgMShISGuUnEmzxRM9WbA?pwd=KPZC">📁降级工具｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-c9qsd">📁降级工具｜一二三</a>
+                </div>
+        </section>
+        <!脚本->
+        <section class="category-section">
+            <h2>🟢 脚本</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1IzGaBxyWioGjA4fCRnHOJA?pwd=KPZC">📁实用脚本｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-e9qsd">📁实用脚本｜一二三</a>
+                </div>
+        </section>
+        <!解包->
+        <section class="category-section">
+            <h2>🟢 解包</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1VgkHaniudYdzhrf5Dq5nFg?pwd=KPZC">📁解包工具｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-t9qsd">📁解包工具｜一二三</a>
+                </div>
+        </section>
+        <!开发->
+        <section class="category-section">
+            <h2>🟢 开发</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1UCBAASUUC0_kRhfGj3EdAQ?pwd=KPZC">📁Termux｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-i9qsd">📁Termux｜一二三</a>
+                </div>
+        </section>
+        <!模块->
+        <section class="category-section">
+            <h2>🟢 模块</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1A7XX6FGpe82lgORUIboIrA?pwd=KPZC">📁LSPosed｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-z9qsd">📁LSPosed｜一二三</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/153O5w_XezI0JxNU4ovQnNg?pwd=KPZC">📁Zygisk-Next｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-L9qsd">📁Zygisk-Next｜一二三</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1HSpSNKLFRssj18ZAWw6Kvw?pwd=KPZC">📁自研模块｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-59qsd">📁自研模块｜一二三</a>
+                </div>
+        </section>
+        <!驱动->
+        <section class="category-section">
+            <h2>🟢 驱动</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1hVavu4HLtWxxjZLj71peKg?pwd=KPZC">📁刷机驱动｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-q9qsd">📁刷机驱动｜一二三</a>
+                </div>
+        </section>
+        <!设备->
+        <section class="category-section">
+            <h2>🟢 设备</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1q98PonmUWxxOVgh0whE_Yw?pwd=KPZC">📁OPPO K5｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-69qsd">📁OPPO K5｜一二三</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1c9GrRJxqFiQ8DpOCYgXsUA?pwd=KPZC">📁一加 13｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-y9qsd">📁一加 13｜一二三</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1q2yF59_TkKnzSGtFv6uQAw?pwd=KPZC">📁一加 Ace 5｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-V9qsd">📁一加 Ace 5｜一二三</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/11toer8DeEx4O_4uT0wRM2g?pwd=KPZC">📁一加Ace 5 Pro｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-j9qsd">📁一加Ace 5 Pro｜一二三</a>
+                </div>
+        </section>
+        <!系软->
+        <section class="category-section">
+            <h2>🟢 系软</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1t66-AZ0t1eIaSt_mzVeYxg?pwd=KPZC">📁华为鸿蒙｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-TQqsd">📁华为鸿蒙｜一二三</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1gwyAT5JBWkucICMLtki2Fw?pwd=KPZC">📁蓝厂橘子｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-vQqsd">📁蓝厂橘子｜一二三</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1pSXt7AcdTqlr8bQquySleg?pwd=KPZC">📁黑厂颜色｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-dQqsd">📁黑厂颜色｜一二三</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1hf7h1FmODkjas-V4GdHMWQ?pwd=KPZC">📁小米澎湃｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-3Qqsd">📁小米澎湃｜一二三</a>
+                </div>
+        </section>
+        <!杂项->
+        <section class="category-section">
+            <h2>🟢 杂项</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <a href="https://pan.baidu.com/s/1xC0sihe9aYEWKkQBzTliJg?pwd=KPZC">📁杂项资源｜百度云</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://www.123912.com/s/WuTjTd-hQqsd">📁杂项资源｜一二三</a>
+                </div>
+        </section>
+        <! 完整添加所有资源分类... ->
+        <span id="sitetime"></span>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+        <a href="https://microeasy.netlify.app/">感谢Microeasy鼎力支持</a>｜
+            <a href="http://www.coolapk.com/u/37113394">问题反馈</a>
+        </div>
+        <p>版本 3.1.9｜2025-03-26</p>
+        <p>Copyright © 2020-2025 KunPeng All rights reserved.</p>
+        <p>Copyright © 2021-2025 Microeasy All rights reserved.</p>
+    </footer>
+
+    <button class="theme-toggle" id="themeToggle">🌙 暗色模式</button>
+
+    <script>
+        // 增强版时间计算
+        (function() {
+            const startDate = new Date('2025-03-29T00:00:00+08:00');
+            
+            function calculateDuration() {
+                const now = new Date();
+                let diff = now - startDate;
+
+                const years = Math.floor(diff / 31536000000);
+                diff %= 31536000000;
+                
+                const days = Math.floor(diff / 86400000);
+                diff %= 86400000;
+                
+                const hours = Math.floor(diff / 3600000);
+                diff %= 3600000;
+                
+                const minutes = Math.floor(diff / 60000);
+                diff %= 60000;
+                
+                const seconds = Math.floor(diff / 1000);
+
+                return { years, days, hours, minutes, seconds };
+            }
+
+            function updateTimer() {
+                const t = calculateDuration();
+                document.getElementById('sitetime').innerHTML = 
+                    `🚀 下载站已运行 ${t.years} 年 ${t.days} 天 `;
+            }
+
+            // 搜索功能
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                document.querySelectorAll('.resource-card').forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    card.style.display = text.includes(searchTerm) ? 'block' : 'none';
+                });
+            });
+
+            // 主题切换功能
+            const themeToggle = document.getElementById('themeToggle');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let isDarkMode = prefersDark;
+
+            function toggleTheme() {
+                isDarkMode = !isDarkMode;
+                document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+                themeToggle.textContent = isDarkMode ? '☀️ 亮色模式' : '🌙 暗色模式';
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            }
+
+            themeToggle.addEventListener('click', toggleTheme);
+
+            // 初始化主题
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️ 亮色模式';
+            }
+
+            // 初始化计时器
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        })();
+    </script>
+</body>
+</html>
