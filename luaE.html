@@ -9,8 +9,11 @@
 
 <body>
     <h1>Lua工具</h1>
+    <!-- 输入文本框 -->
+    <textarea id="luaCodeInput" placeholder="请输入Lua代码" style="width: 500px; height: 200px;"></textarea>
     <input type="file" id="fileInput">
     <button onclick="uploadFile()">上传文件</button>
+    <button onclick="uploadText()">上传文本</button>
     <a id="downloadLink" href="#" download>下载文件</a>
     <select id="functionSelect">
         <option value="obfuscate">Lua混淆加密</option>
@@ -23,6 +26,8 @@
         <option value="andlua_shell">AndLua脱壳</option>
     </select>
     <button onclick="executeFunction()">执行功能</button>
+    <!-- 输出文本框 -->
+    <textarea id="luaCodeOutput" readonly style="width: 500px; height: 200px;"></textarea>
     <script>
         function uploadFile() {
             const file = document.getElementById('fileInput').files[0];
@@ -30,14 +35,15 @@
             const numWorkers = 3;
             const chunkSize = 1024 * 1024;
             const fileSize = file.size;
-            const formData = new FormData();
-            formData.append('functionType', document.getElementById('functionSelect').value);
+            const functionType = document.getElementById('functionSelect').value;
             const workers = [];
             for (let i = 0; i < numWorkers; i++) {
                 const start = i * chunkSize;
                 const end = Math.min((i + 1) * chunkSize, fileSize);
-                const chunk = file.slice(start, end);
-                formData.append('file', chunk);
+                const formData = new FormData();
+                formData.append('functionType', functionType);
+                formData.append('file', file.slice(start, end));
+                formData.append('chunkIndex', i);
                 const worker = new Worker('uploadWorker.js');
                 worker.postMessage({ formData, start, end });
                 workers.push(worker);
@@ -51,8 +57,29 @@
             }
         }
 
+        function uploadText() {
+            const luaCode = document.getElementById('luaCodeInput').value;
+            const functionType = document.getElementById('functionSelect').value;
+            const formData = new FormData();
+            formData.append('functionType', functionType);
+            formData.append('text', luaCode);
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/uploadText', true);
+            xhr.send(formData);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log('文本上传完成');
+                }
+            };
+        }
+
         function executeFunction() {
-            uploadFile();
+            const file = document.getElementById('fileInput').files[0];
+            if (file) {
+                uploadFile();
+            } else {
+                uploadText();
+            }
         }
 
         function downloadFile() {
@@ -63,7 +90,7 @@
             for (let i = 0; i < numWorkers; i++) {
                 const start = i * chunkSize;
                 const end = Math.min((i + 1) * chunkSize, fileSize);
-                const worker =downloadWorker.js');
+                const worker = new Worker('downloadWorker.js');
                 worker.postMessage({ start, end, functionType });
                 workers.push(worker);
             }
@@ -80,6 +107,12 @@
                     }
                 };
             }
+        }
+
+        // 接收后端返回的处理结果并显示在输出文本框
+        function displayResult(result) {
+            const outputTextarea = document.getElementById('luaCodeOutput');
+            outputTextarea.value = result;
         }
     </script>
 </body>
