@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lua工具网站</title>
+</head>
+
+<body>
+    <h1>Lua工具</h1>
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">上传文件</button>
+    <a id="downloadLink" href="#" download>下载文件</a>
+    <select id="functionSelect">
+        <option value="obfuscate">Lua混淆加密</option>
+        <option value="decompile">反编译</option>
+        <option value="disassemble">反汇编</option>
+        <option value="assemble">汇编</option>
+        <option value="format">格式化</option>
+        <option value="remove_comments">去注释</option>
+        <option value="compress">压缩成行</option>
+        <option value="andlua_shell">AndLua脱壳</option>
+    </select>
+    <button onclick="executeFunction()">执行功能</button>
+    <script>
+        function uploadFile() {
+            const file = document.getElementById('fileInput').files[0];
+            if (!file) return;
+            const numWorkers = 3;
+            const chunkSize = 1024 * 1024;
+            const fileSize = file.size;
+            const formData = new FormData();
+            formData.append('functionType', document.getElementById('functionSelect').value);
+            const workers = [];
+            for (let i = 0; i < numWorkers; i++) {
+                const start = i * chunkSize;
+                const end = Math.min((i + 1) * chunkSize, fileSize);
+                const chunk = file.slice(start, end);
+                formData.append('file', chunk);
+                const worker = new Worker('uploadWorker.js');
+                worker.postMessage({ formData, start, end });
+                workers.push(worker);
+            }
+            for (let i = 0; i < numWorkers; i++) {
+                workers[i].onmessage = function (e) {
+                    if (e.data === 'done') {
+                        console.log(`线程 ${i} 上传完成`);
+                    }
+                };
+            }
+        }
+
+        function executeFunction() {
+            uploadFile();
+        }
+
+        function downloadFile() {
+            const numWorkers = 3;
+            const chunkSize = 1024 * 1024;
+            const functionType = document.getElementById('functionSelect').value;
+            const workers = [];
+            for (let i = 0; i < numWorkers; i++) {
+                const start = i * chunkSize;
+                const end = Math.min((i + 1) * chunkSize, fileSize);
+                const worker =downloadWorker.js');
+                worker.postMessage({ start, end, functionType });
+                workers.push(worker);
+            }
+            let downloadedChunks = [];
+            for (let i = 0; i < numWorkers; i++) {
+                workers[i].onmessage = function (e) {
+                    downloadedChunks.push(e.data);
+                    if (downloadedChunks.length === numWorkers) {
+                        const blob = new Blob(downloadedChunks);
+                        const url = URL.createObjectURL(blob);
+                        document.getElementById('downloadLink').href = url;
+                        document.getElementById('downloadLink').click();
+                        URL.revokeObjectURL(url);
+                    }
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>
